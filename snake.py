@@ -30,6 +30,12 @@ class Snake(Turtle):
         new_body.goto(position)
         self.snakeBody.append(new_body)
 
+    def reset(self):
+        for seg in self.snakeBody:
+            seg.goto(1000, 1000)
+        self.snakeBody.clear()
+        self.__init__()
+
     def extend(self):
         self.add_segment(self.snakeBody[-1].position())
 

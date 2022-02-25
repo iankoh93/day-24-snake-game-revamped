@@ -40,17 +40,18 @@ while game_is_on:
 
     # Detect collision with wall.
     if snake.snakeBody[0].xcor() > LIMITS-10 or snake.snakeBody[0].xcor() < -LIMITS+10 or snake.snakeBody[0].ycor() < -LIMITS+10 or snake.snakeBody[0].ycor() > LIMITS-10:
-        food.hideturtle()
         screen.update()
-        game_is_on = False
-        score.game_over()
+        score.reset()
+        snake.reset()
 
     # Detect collision with tail.
     # If head collides with any segment in tail, game over
     for segment in snake.snakeBody[1:]:
         if snake.snakeBody[0].distance(segment) < 10:
-            game_is_on = False
-            score.game_over()
+            score.reset()
+            snake.reset()
 
 
 screen.exitonclick()
+
+
