@@ -19,11 +19,17 @@ food = Food()
 score = Scoreboard()
 
 
+def stop_game():
+    global game_is_on
+    game_is_on = False
+
+
 screen.listen()
 screen.onkey(fun=snake.up, key="Up")
 screen.onkey(fun=snake.down, key="Down")
 screen.onkey(fun=snake.west, key="Left")
 screen.onkey(fun=snake.east, key="Right")
+screen.onkey(fun=stop_game, key="space")
 
 
 while game_is_on:

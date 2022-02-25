@@ -1,6 +1,7 @@
 from turtle import Turtle
 ALIGNMENT = "center"
 FONT = ("Comic Sans", 20, "normal")
+PATH = r"./highscore.txt"
 
 
 class Scoreboard(Turtle):
@@ -22,12 +23,12 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.current_score > self.high_score:
             self.high_score = self.current_score
-            with open("highscore.txt", mode="w") as file:
+            with open(PATH, mode="w") as file:
                 file.write(f"{self.current_score}")
         self.current_score = 0
         self.print_score()
 
     def open_score(self):
-        with open("highscore.txt", mode="r") as file:
+        with open(PATH, mode="r") as file:
             score = file.read()
             return score
